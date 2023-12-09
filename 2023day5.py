@@ -287,7 +287,6 @@ def convert(source, map):
             x2, y2 = j
             if x1 < y2 and y1 > x2:
                 res.append((max(x2, x1)+d[j], min(y2, y1)+d[j]))
-                
                 if (y1 > y2 and x1 > x2) and not done:
                     queue.append((y2, y1))
                 if (y1 < y2 and x1 < x2) and not done:
@@ -296,11 +295,11 @@ def convert(source, map):
         if not done:
             res.append((x1, y1))
     if res == []:
-        print(source)
+        #print(source)
         return source
     res = list(set(res))
-    print(res)
+    #print(res)
     return res
 for map in [seed_soil, soil_fertiliser, fertiliser_water, water_light, light_temperature, temperature_humidity, humidity_location]:
     source = convert(source, map)
-print(min(source, key=lambda x:x[0]))
+print(min(source, key=lambda x:x[0])[0])
